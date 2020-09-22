@@ -45,6 +45,6 @@ git -C _sass/libraries/prozin push
 git -C _layouts/prozin push
 git -C _tools push
 
-git -C -a -m "Scripted Prozin update" 
-git -C push
+git -a -m "Scripted Prozin update" 
+git push
 
