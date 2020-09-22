@@ -21,6 +21,12 @@ git -C _layouts/prozin pull
 git -C _tools checkout master
 git -C _tools pull
 
+git add assets/script/* --all
+git add assets/style/* --all
+git add _data/prozin/* --all
+git add _includes/prozin/* --all
+git add _sass/libraries/prozin/* --all
+git add _layouts/* --all
 git add _tools/* --all
 
 git -C assets/script commit -a -m "Scripted Prozin update" 
