@@ -32,7 +32,9 @@ echo ""
 
 git commit -a -m "Scripted Prozin update" && git push && exit_status=0 || exit_status=1
 if [ "${exit_status}" = "0" ]; then
+    echo ""
     print -P "%F{green}Project synced%f\n"
 else
+    echo ""
     print -P "%F{red}There was a problem synching the project.%f\n"
 fi
