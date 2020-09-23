@@ -26,13 +26,13 @@ git -C _tools pull
 echo ">> Adding now any new files created within the submodules"
 echo ""
 
-cd ../assets/script && git add * --all
-cd ../assets/style && git add * --all
-cd ../_data/prozin && git add * --all
-cd ../_includes/prozin && git add * --all
-cd ../_sass/libraries/prozin && git add * --all
-cd ../_layouts && git add * --all
-cd ../_tools && git add * --all
+cd ../assets/script && git add * --all && pwd
+cd ../assets/style && git add * --all && pwd
+cd ../_data/prozin && git add * --all && pwd
+cd ../_includes/prozin && git add * --all && pwd
+cd ../_sass/libraries/prozin && git add * --all && pwd
+cd ../_layouts && git add * --all && pwd
+cd ../_tools && git add * --all && pwd
 
 echo ">> Committing whatever has changed in submodules"
 echo ""
