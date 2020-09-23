@@ -17,8 +17,10 @@ for item in $patharray; do
     pushd .
     cd $item && git checkout master && git pull && git add * --all && git commit -a -m "Scripted Prozin update" && git push && exit_status=0 || exit_status=1
     if [ "${exit_status}" = "0" ]; then
+        echo ""
         print -P "%F{green}$item synced%f\n"
     else
+        echo ""
         print -P "%F{red}Nothing needed to be done or there was a problem with $item%f\n"
     fi
     popd
