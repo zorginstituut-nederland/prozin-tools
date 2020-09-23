@@ -1,71 +1,36 @@
+#!/bin/zsh
+echo ""
+echo "\e[1m--> Project Sync <--\e[0m"
+echo ""
+
+echo ""
+echo "> Syncing all the submodules, committing changes and pushing it."
+echo ""
+
 cd ..
 
-echo ">> Starting to checkout all submodules"
+pathlist="assets/script assets/style _data/prozin _includes/prozin _sass/libraries/prozin _layouts/prozin _tools"
+patharray=( ${=pathlist} )
+
+for item in $patharray; do
+    print -P ">> Syncing $item:"
+    pushd .
+    cd $item && git checkout master && git pull && git add * --all && git commit -a -m "Scripted Prozin update" && git push && exit_status=0 || exit_status=1
+    if [ "${exit_status}" = "0" ]; then
+        print -P "%F{green}$item synced%f\n"
+    else
+        print -P "%F{red}There was a problem with $item%f\n"
+    fi
+    popd
+done
+
 echo ""
-git -C assets/script checkout master
-git -C assets/script pull
-
-git -C assets/style checkout master
-git -C assets/style pull
-
-git -C _data/prozin checkout master
-git -C _data/prozin pull
-
-git -C _includes/prozin checkout master
-git -C _includes/prozin pull
-
-git -C _sass/libraries/prozin checkout master
-git -C _sass/libraries/prozin pull
-
-git -C _layouts/prozin checkout master
-git -C _layouts/prozin pull
-
-git -C _tools checkout master
-git -C _tools pull
-
-echo ">> Adding now any new files created within the submodules"
+echo "> Update the project with the latest changes and push it."
 echo ""
 
-cd ../assets/script && git add * --all
-pwd
-cd ../assets/style && git add * --all
-pwd
-cd ../_data/prozin && git add * --all 
-pwd
-cd ../_includes/prozin && git add * --all
-pwd
-cd ../_sass/libraries/prozin && git add * --all 
-pwd
-cd ../_layouts && git add * --all 
-pwd
-cd ../_tools && git add * --all 
-pwd
-
-echo ">> Committing whatever has changed in submodules"
-echo ""
-
-git -C assets/script commit -a -m "Scripted Prozin update" 
-git -C assets/style commit -a -m "Scripted Prozin update" 
-git -C _data/prozin commit -a -m "Scripted Prozin update" 
-git -C _includes/prozin commit -a -m "Scripted Prozin update" 
-git -C _sass/libraries/prozin commit -a -m "Scripted Prozin update" 
-git -C _layouts/prozin commit -a -m "Scripted Prozin update" 
-git -C _tools commit -a -m "Scripted Prozin update" 
-
-echo ">> Pushing my changes to github"
-echo ""
-
-git -C assets/script push
-git -C assets/style push
-git -C _data/prozin push
-git -C _includes/prozin push 
-git -C _sass/libraries/prozin push
-git -C _layouts/prozin push
-git -C _tools push
-
-echo ">> Update the project with the latest changes and push it"
-echo ""
-
-git commit -a -m "Scripted Prozin update" 
-git push
-
+git commit -a -m "Scripted Prozin update" && git push && exit_status=0 || exit_status=1
+if [ "${exit_status}" = "0" ]; then
+    print -P "%F{green}Project synced%f\n"
+else
+    print -P "%F{red}There was a problem synching the project.%f\n"
+fi
