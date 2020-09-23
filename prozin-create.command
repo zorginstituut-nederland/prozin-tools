@@ -6,4 +6,4 @@ git submodule add --force https://github.com/zorginstituut-nederland/prozin-ui-c
 git submodule add --force https://github.com/zorginstituut-nederland/prozin-includes.git _includes/prozin
 git submodule add --force https://github.com/zorginstituut-nederland/prozin-sass.git _sass/libraries/prozin
 git submodule add --force https://github.com/zorginstituut-nederland/prozin-layouts.git _layouts/prozin
-git submodule add --force https://github.com/zorginstituut-nederland/prozin-tools.git _tools
+git submodule add --force https://github.com/zorginstituut-nederland/prozin-tools.git 
