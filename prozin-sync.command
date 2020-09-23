@@ -1,5 +1,6 @@
 cd ..
 
+echo "Starting to checkout all submodules"
 git -C assets/script checkout master
 git -C assets/script pull
 
