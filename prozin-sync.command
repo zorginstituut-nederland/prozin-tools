@@ -19,7 +19,7 @@ for item in $patharray; do
     if [ "${exit_status}" = "0" ]; then
         print -P "%F{green}$item synced%f\n"
     else
-        print -P "%F{red}There was a problem with $item%f\n"
+        print -P "%F{red}Nothing needed to be done or there was a problem with $item%f\n"
     fi
     popd
 done
