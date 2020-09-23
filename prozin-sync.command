@@ -59,6 +59,6 @@ git -C _tools push
 echo ">> Update the project with the latest changes and push it"
 echo ""
 
-git -a -m "Scripted Prozin update" 
+git commit -a -m "Scripted Prozin update" 
 git push
 
