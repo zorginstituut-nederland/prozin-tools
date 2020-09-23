@@ -1,6 +1,7 @@
 cd ..
 
-echo "Starting to checkout all submodules"
+echo ">> Starting to checkout all submodules"
+echo ""
 git -C assets/script checkout master
 git -C assets/script pull
 
@@ -22,6 +23,9 @@ git -C _layouts/prozin pull
 git -C _tools checkout master
 git -C _tools pull
 
+echo ">> Adding now any new files created within the submodules"
+echo ""
+
 git add assets/script/* --all
 git add assets/style/* --all
 git add _data/prozin/* --all
@@ -29,6 +33,9 @@ git add _includes/prozin/* --all
 git add _sass/libraries/prozin/* --all
 git add _layouts/* --all
 git add _tools/* --all
+
+echo ">> Committing whatever has changed in submodules"
+echo ""
 
 git -C assets/script commit -a -m "Scripted Prozin update" 
 git -C assets/style commit -a -m "Scripted Prozin update" 
@@ -38,6 +45,9 @@ git -C _sass/libraries/prozin commit -a -m "Scripted Prozin update"
 git -C _layouts/prozin commit -a -m "Scripted Prozin update" 
 git -C _tools commit -a -m "Scripted Prozin update" 
 
+echo ">> Pushing my changes to github"
+echo ""
+
 git -C assets/script push
 git -C assets/style push
 git -C _data/prozin push
@@ -45,6 +55,9 @@ git -C _includes/prozin push
 git -C _sass/libraries/prozin push
 git -C _layouts/prozin push
 git -C _tools push
+
+echo ">> Update the project with the latest changes and push it"
+echo ""
 
 git -a -m "Scripted Prozin update" 
 git push
